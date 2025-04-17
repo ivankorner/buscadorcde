@@ -15,7 +15,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="./assets/"></script>
 <script src="./assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
+<script>
+        function toggleAnexos() {
+            const anexosSection = document.getElementById('anexosSection');
+            const anexosCheckbox = document.getElementById('hasAnexos');
+            anexosSection.style.display = anexosCheckbox.checked ? 'block' : 'none';
+        }
+    </script>
 
 
 

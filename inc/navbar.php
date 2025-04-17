@@ -23,7 +23,7 @@
               Instrumento
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../vistas/instrumento_nuevo.php">Nuevo</a></li>
+              <li><a class="dropdown-item" href="index.php?vista=instrumento_nuevo">Nuevo</a></li>
               <li><a class="dropdown-item" href="#">Listado</a></li>
               <li><a class="dropdown-item" href="#">Categorías</a></li>
               <li><a class="dropdown-item" href="#">Buscar</a></li>
