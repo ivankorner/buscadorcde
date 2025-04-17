@@ -71,6 +71,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Instrumentos</a>
+            <?php if ($isLoggedIn): ?>
+                <span class="text-white ms-auto">Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+            <?php endif; ?>
         </div>
     </nav>
 

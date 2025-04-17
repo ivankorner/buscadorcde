@@ -90,8 +90,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
         }
-        .container {
-            margin-top: 5%;
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .navbar-brand:hover {
+            color: #ffc107;
         }
         .btn-primary {
             background-color: #007bff;
@@ -101,9 +108,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #0056b3;
             border-color: #004085;
         }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+        }
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <a class="navbar-brand" href="#">Instrumentos</a>
+        <?php if ($isLoggedIn): ?>
+            <span class="text-white ms-auto">Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+        <?php endif; ?>
+    </div>
+
     <div class="container">
         <h1 class="mb-4">Carga de Datos</h1>
 
