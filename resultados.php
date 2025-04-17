@@ -1,4 +1,7 @@
 <?php
+session_start();
+$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
 // Conexión a la base de datos
 $host = 'localhost';
 $dbname = 'nu';
@@ -51,18 +54,39 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Búsqueda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 5%;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .table {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h1 class="mb-4">Resultados de Búsqueda</h1>
         <?php if (empty($results)): ?>
-            <p>No se encontraron resultados.</p>
+            <p class="text-muted">No se encontraron resultados.</p>
         <?php else: ?>
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Número de Expediente</th>
-                        <th>Instrumento</th>
+                        <th>Número de Instrumento</th>
+                        <th>Tipo de Instrumento</th>
                         <th>Año</th>
                         <th>Archivo</th>
                     </tr>
@@ -73,13 +97,19 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($row['name']); ?></td>
                             <td><?php echo htmlspecialchars($row['instrumento']); ?></td>
                             <td><?php echo htmlspecialchars($row['year']); ?></td>
-                            <td><a href="<?php echo htmlspecialchars($row['file_path']); ?>" target="_blank">Ver PDF</a></td>
+                            <td>
+                                <a href="<?php echo htmlspecialchars($row['file_path']); ?>" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         <?php endif; ?>
+        
         <a href="index.php" class="btn btn-secondary mt-3">Volver a la Búsqueda</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

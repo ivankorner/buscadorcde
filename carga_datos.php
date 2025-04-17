@@ -83,19 +83,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar Datos</title>
+    <title>Carga de Datos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script>
-        function toggleAnexos() {
-            const anexosSection = document.getElementById('anexosSection');
-            const anexosCheckbox = document.getElementById('hasAnexos');
-            anexosSection.style.display = anexosCheckbox.checked ? 'block' : 'none';
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
         }
-    </script>
+        .container {
+            margin-top: 5%;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Cargar Datos</h1>
+    <div class="container">
+        <h1 class="mb-4">Carga de Datos</h1>
 
         <?php if (!empty($message)): ?>
             <div class="alert alert-info"><?php echo htmlspecialchars($message); ?></div>
