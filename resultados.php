@@ -89,6 +89,9 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Tipo de Instrumento</th>
                         <th>Año</th>
                         <th>Archivo</th>
+                        <?php if ($isLoggedIn): ?>
+                            <th>Acciones</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +105,16 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
+                            <?php if ($isLoggedIn): ?>
+                                <td>
+                                    <a href="editar.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="eliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
